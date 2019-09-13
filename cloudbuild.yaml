@@ -1,6 +1,17 @@
 steps:
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
-  - --destination=gcr.io/_PROJECT_ID/image
+  - --destination=gcr.io/_PROJECT_ID/hello-world
   - --cache=true
   - --cache-ttl=6h
+  - --insecure
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ["build", "-t", "gcr.io/my-project/my-image:$REVISION_ID", "."]
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ["push", "gcr.io/my-project/my-image:$REVISION_ID"]
+  # - name: 'gcr.io/cloud-builders/gke-deploy:stable'
+  #   args:
+  #   - 'run'
+  #   - '--image=gcr.io/my-project/my-image:$REVISION_ID'
+  #   - '--location=us-east4-b'
+  #   - '--cluster=my-cluster'
